@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query"
 import { useState } from "react"
-import type { signInType } from "../../../types"
-import { postWithToken } from "../../../api/auth"
+import type { signInType } from "~/types"
+import { postWithToken } from "~/api"
 
 const SignIn = () => {
   const [signInData, setSignInData] = useState<signInType>({

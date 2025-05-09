@@ -1,4 +1,4 @@
-import type { signInType, signUpType } from "../types";
+import type { signInType, signUpType } from "~/types";
 import { CommonAPI } from "./common";
 
 export const postWithToken = async (
