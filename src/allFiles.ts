@@ -1,3 +1,4 @@
-import SignUp from "./pages/Auth/SignUp";
+import SignUp from './pages/Auth/SignUp'
+import SignIn from './pages/Auth/SignIn'
 
-export { SignUp }
+export { SignUp, SignIn }

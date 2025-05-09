@@ -1,11 +1,9 @@
 export type signInType = {
-	login: 'string'
-	password: 'string'
+	login: string
+	password: string
 }
 
 export type signUpType = {
-	email: 'string'
-	login: 'string'
-	password: 'string'
-	bio: 'string'
+	username: string
+	password: string
 }
