@@ -1,7 +1,6 @@
-import { useMutation } from "@tanstack/react-query"
 import { useState } from "react"
+import { useAuth } from "~/hooks"
 import type { signUpType } from "~/types"
-import { postWithToken } from "~/api"
 
 const SignUp = () => {
   const [signupData, setSignupData] = useState<signUpType>({
@@ -9,12 +8,9 @@ const SignUp = () => {
 		password: '',
 	})
 
-  const { mutate, isPending } = useMutation({
-		mutationFn: async (data: signUpType) => {
-			const response = await postWithToken(null, '/user/signup', data)
-			return response
-		},
-	})
+  const { signUp } = useAuth()
+  
+  const { mutate, isPending } = signUp
 
   const handleSubmit = () => {
     if (isPending || !signupData.username.trim() || !signupData.password.trim()) return
