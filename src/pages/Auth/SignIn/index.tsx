@@ -1,6 +1,8 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import type { signInType } from "~/types"
 import { useAuth } from "~/hooks"
+import { setCookie } from "~/utils"
 
 const SignIn = () => {
     const [signInData, setSignInData] = useState<signInType>({
@@ -17,8 +19,9 @@ const SignIn = () => {
 
       mutate(signInData, {
         onSuccess: (data) => {
-          alert("로그인에 성공하셨습니다!")
-          console.log(data)
+          const accessToken = data?.accessToken
+          if (accessToken) setCookie('accessToken', accessToken)
+          alert('로그인에 성공하셨습니다!')
         },
         onError: (error) => {
           console.log(error)
@@ -27,6 +30,7 @@ const SignIn = () => {
     }
 
   return (
+    <>
     <div>
       <h1>로그인</h1>
       <input
@@ -45,6 +49,8 @@ const SignIn = () => {
         {isPending ? "로그인중..." : "로그인하기"}
       </button>
     </div>
+    <Link to='/signup'>회원가입</Link>
+    </>
   )
 }
 

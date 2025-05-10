@@ -6,8 +6,8 @@ function App() {
  return (
 		<Router>
 			<Routes>
-				<Route path={"/"} element={<R.SignUp />} />
-				<Route path={"/signin"} element={<R.SignIn />} />
+				<Route path={"/signup"} element={<R.SignUp />} />
+				<Route path={"/"} element={<R.SignIn />} />
 			</Routes>
 		</Router>
  )

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { useAuth } from "~/hooks"
 import type { signUpType } from "~/types"
 
@@ -8,6 +9,8 @@ const SignUp = () => {
 		password: '',
 	})
 
+  const navigate = useNavigate()
+
   const { signUp } = useAuth()
   
   const { mutate, isPending } = signUp
@@ -16,9 +19,9 @@ const SignUp = () => {
     if (isPending || !signupData.username.trim() || !signupData.password.trim()) return
 
     mutate(signupData, {
-      onSuccess: (data) => {
+      onSuccess: () => {
         alert("회원가입에 성공하셨습니다!")
-        console.log(data)
+        navigate('/')
       },
       onError: (error) => {
         console.log(error)

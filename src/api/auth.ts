@@ -8,10 +8,11 @@ export const postWithToken = async (
   ): Promise<any> => {
     try {
       const response = await CommonAPI.post(url, data, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      });
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			})
+
       return response.data;
     } catch (error) {
       console.error("POST Error: ", error);
