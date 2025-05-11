@@ -47,6 +47,7 @@ const Profile = () => {
 			},
 			{
 				onSuccess: () => {
+					setUser({ ...user, username: userData.username })
 					alert('정보 수정이 완료되었습니다!')
 					navigate('/profile')
 				},
@@ -62,7 +63,7 @@ const Profile = () => {
 
 	return (
 		<div>
-			<h1>{userData.username}님의 프로필 수정</h1>
+			<h1>{user?.username}님의 프로필 수정</h1>
 			<input
 				type="text"
 				placeholder="아이디"
